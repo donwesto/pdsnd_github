@@ -16,6 +16,7 @@ CITY_DATA = { 'chicago': chicago,
 cities = list(CITY_DATA)+list(['random'])
 months = ['all', 'january', 'february', 'march', 'april', 'may', 'june']
 days = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+modes = ['random','standard']
 
 
 def get_filters():
