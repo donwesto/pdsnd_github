@@ -9,6 +9,7 @@ The program let's you analyse bikeshare data for the following cities:
 1. Chicago
 2. New York City
 3. Washington
+4. Random mode (program chooses a random city, month and day)
 
 To use the program, a filter requests the user to input filter data for the city, month and day.
 To analyse the bikeshare data provided by .csv files, the code is grouped in the following functions.
