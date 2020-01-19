@@ -31,17 +31,19 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!\n')
 
     # Additional feature "mode" for analysis of data: choose random or individual
-    mode = input('Do you want random or individually chosen output? Type \'random\' or \'standard\': ').lower()
+    mode = input('Do you want random or individually chosen output? Choose one {}: '.format(modes)).lower()
+
+    while mode not in modes:
+        print('Unexpected input. Please try again.')
+        mode = input('Do you want random or individually chosen output? Choose one {}: '.format(modes)).lower()
 
     if mode == 'random':
-        rcity = random.choice(list(CITY_DATA))
-        rmonth = random.choice(months)
-        rday = random.choice(days)
+        city = random.choice(list(CITY_DATA))
+        month = random.choice(months)
+        day = random.choice(days)
         print('Random data is analyzed for city \'{}\', month \'{}\', week day \'{}\'.'\
-              .format(rcity.title(),rmonth.title(),rday.title())\
+              .format(city.title(),month.title(),day.title())\
              )
-        print('-'*40)
-        return rcity, rmonth, rday
 
     # Asking user for selective output for city, month, week day
     elif mode == 'standard':
@@ -67,12 +69,9 @@ def get_filters():
         while day not in days:
             print('No data available for this day. Please choose from this selection: {}'.format(days))
             day = input('Enter a week day you want to analyze bike share data for: ').lower()
-        print('-'*40)
-        return city, month, day
 
-    else:
-        print('Unexpected input. Please try again.')
-        main()
+    print('-'*40)
+    return city, month, day
 
 
 def load_data(city, month, day):
